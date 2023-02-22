@@ -37,18 +37,18 @@ public class Main {
 
     private static void backTracking(int x, int y, int sum) { // column 블록 단위의 (x, y)를 각각 부메랑의 축으로 생성
         // x가 column 레벨에서 전부 사용되었을 경우
-        if (x == M) {
+        if (x == N) {
             x = 0;
             y++; // 오른쪽으로 column 블록 이동
         }
 
         // backTracking간에 모든 (x, y) 축을 사용했을 경우
-        if (y == N) {
+        if (y == M) {
             robbery = Math.max(robbery, sum); // update
             return;
         }
 
-        if (notYetUsed(x, y)) { // (x, y)를 축으로 아직 사용하지 않은 경우
+        if (notYetUsed(x, y) && isRange(x, y)) { // (x, y)를 축으로 아직 사용하지 않은 경우
             // 왼쪽 + 위
             if (canUseParts(x, y - 1) && canUseParts(x - 1, y)) {
                 apply[x][y] = apply[x][y - 1] = apply[x - 1][y] = true;
