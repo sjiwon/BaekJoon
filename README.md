@@ -1,5 +1,5 @@
 # Baekjoon
-- 백준 자바로 풀기
+- `Java & Kotlin`으로 백준 풀기
   <br>
 
 # Commit Rule
